@@ -1,0 +1,701 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+header{
+    
+    height: 100vh;
+    background: url("../img/Background Header.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: contain;
+    width: auto;
+    
+}
+
+ nav img {
+    display: flex;
+    height: 50px;
+    margin-right: 600px;
+    align-content: center;
+    
+}
+    
+header nav{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items:center;
+    padding: 30px 0;
+    
+}
+
+header ul a{
+    color: #fff;
+    font-size: 24px;
+    margin: 0 14px;
+    text-decoration: none;
+    transition: .6s;
+}
+
+header ul a:hover{
+    border-bottom: 2px solid #fff;
+}
+
+#hero{
+    text-align: center; 
+    margin-top: 400px;
+}
+#hero h1{
+    color: yellow;
+    font-size: 60px;
+    text-shadow: 4px 4px 0px #000000;
+}
+
+#hero h2{
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 100px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+main{
+    width: 100%;
+    position: relative;
+}
+
+/* SECCION INFORMACION */
+#informacion{
+    background: #ededed;
+    width: 100%;
+    height: 1000px;
+}
+
+#informacion h2{
+    font-size: 50px;
+    padding: 20px 0px;
+    text-align: center;
+    text-shadow: 2px 2px 4px blue;
+    
+}
+
+
+/* ------------------CARD------------ */
+.container{
+    display: grid;
+    place-items: center;
+    margin-inline: 25px;
+    padding-block: 50px;
+}
+
+.card__container{
+    display: grid;
+    row-gap: 3.5rem;
+}
+
+.card__article{
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 250px;
+
+}
+
+.card__img{
+    width: 348px;
+    border-radius: 25px;
+    
+}
+
+.card__data{
+    width: 280px;
+    background-color: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.80);
+    border-radius: 15px;
+    position: absolute;
+    bottom: -9rem;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    opacity: 0;
+    transition: opacity 1s 1s;
+}
+
+.card__descripcion{
+    display: block;
+    font-size:16px;
+    margin-bottom: 30px;
+}
+
+.card__titulo{
+    font-size: 40px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+}
+
+.card__button{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+.card__button:hover{
+    text-decoration: underline;
+}
+
+/* Animacion en hover */
+.card__article:hover .card__data{
+    animation: show-data 1s forwards;
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.card__article:hover{
+    animation: remove-overflow 2s forwards;
+}
+
+.card__article:not(:hover){
+    animation: show-overflow 2s forwards;
+}
+
+.card__article:not(:hover) .card__data{
+    animation: remove-data 1s forwards;
+}
+
+/*CARTA ANIMADA  */
+@keyframes show-data{
+    50%{
+        transform: translateY(-10rem);
+    }
+    100%{
+        transform: translateY(.7rem);
+    }
+}
+
+@keyframes remove-overflow{
+    to{
+        overflow: initial;
+    }
+}
+
+@keyframes remove-data{
+    0%{
+        transform: translateY(-7rem);
+    }
+    50%{
+        transform: translateY(-10rem);
+    }
+    100%{
+        transform: translateY(.5rem);
+    }
+}
+
+@keyframes show-overflow{
+    0%{
+        overflow: initial;
+        pointer-events: none;
+    }
+    50%{
+        overflow: hidden;
+    }
+}
+
+/* ============BREAKPOINTS========= */
+
+/* FOR SMALL DEVICES */
+@media screen and (max-width:340px){
+    .container{
+        margin-inline: 1rem;
+    }
+    .card__data{
+        width: 250px;
+        padding: 1rem;
+    }
+}
+
+/* FOR MEDIUM DEVICES */
+@media screen and (min-width:768px){
+    .card__container{
+        grid-template-columns:repeat(2, 1fr);
+        column-gap: 1.5rem;
+    }
+}
+
+/* FOR LARGE DEVICES */
+@media screen and (min-width:1120px){
+    .container{
+        height: 100vh;
+    }
+    .card__container{
+        grid-template-columns:repeat(3, 1fr);
+
+    }
+    .card__img{
+        width: 348px;
+    }
+    .card__data{
+        width: 316px;
+        padding-inline: 2.5rem;
+    }
+}
+/* SECCION DE PERSONAJES  */
+#personajes {
+    background: url(../img/458821.jpg);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0 40px;
+}
+
+#personajes h2 {
+    text-align: center;
+    color: #000000;
+    font-size: 50px;text-shadow: 2px 2px 4px red;
+}
+
+#personajes .fila {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 50px 50px 40px;
+}
+
+
+#personajes .fila div {
+    width: 250px;
+    text-align: center;
+}
+
+#personajes img {
+    width: 100%;
+    height: 250px;
+    object-fit: fill;
+    border-radius: 20%;
+    transition: transform 0.3s ease;
+}
+
+#personajes img:hover {
+    transform: scale(1.1);
+}
+
+/* Transición en hover para imágenes */
+#personajes .fila div:hover img {
+    transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
+}
+
+/* Transición para los textos */
+#personajes .fila div h3, #personajes .fila div p {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* Cuando se hace hover en la imagen, el texto sube y se vuelve visible */
+#personajes .fila div:hover h3, #personajes .fila div:hover p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fila {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+.fila div {
+    text-align: center; 
+    flex: 1; 
+    max-width: 200px;
+    
+}
+
+.fila img {
+    width: 250px; 
+    height: 250px; 
+    max-width: 150px; 
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .fila {
+        flex-direction: column; 
+        align-items: center; 
+    }
+}
+
+
+
+/* SECCION DE AUTOS  */
+
+#autos{
+    height: 700px;
+    background: #000000;
+}
+
+#autos h2{
+    text-align: center;
+    font-size: 40px;
+    padding: 50px;
+    color: #fff;
+    text-shadow: 0px 0px 6px black;
+}
+
+#autos p{
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+}
+
+.content-all{
+    width: 210px;
+    margin: auto;
+    perspective: 1000px;
+    position: relative;
+    margin-top: 50px;
+}
+
+.content-carrousel{
+    width: 100%;
+    position: absolute;
+    animation: rotar 10s infinite linear;
+    transform-style: preserve-3d;
+}
+
+.content-carrousel:hover{
+    animation-play-state:paused;
+    cursor: pointer;
+}
+
+
+.content-carrousel figure{
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+    position: absolute;
+    box-shadow: 0px 0px 20px 0px black;
+    transition: all 300ms;
+}
+
+.content-carrousel figure:hover{
+    box-shadow: 0px 0px 0px 0px black;
+    transition: all 300ms;
+}
+
+.content-carrousel figure:nth-child(1){
+    transform: rotateY(0deg)translateZ(300px);}
+
+.content-carrousel figure:nth-child(2){
+    transform: rotateY(40deg)translateZ(300px);}
+
+.content-carrousel figure:nth-child(3){
+    transform: rotateY(80deg)translateZ(300px);}        
+
+.content-carrousel figure:nth-child(4){
+    transform: rotateY(120deg)translateZ(300px);}
+
+.content-carrousel figure:nth-child(5){
+    transform: rotateY(160deg)translateZ(300px);}
+
+.content-carrousel figure:nth-child(6){
+    transform: rotateY(200deg)translateZ(300px);}        
+
+.content-carrousel figure:nth-child(7){
+    transform: rotateY(240deg)translateZ(300px);}
+    
+.content-carrousel figure:nth-child(8){
+    transform: rotateY(280deg)translateZ(300px);}
+
+.content-carrousel figure:nth-child(9){
+    transform: rotateY(320deg)translateZ(300px);}        
+
+.content-carrousel figure:nth-child(10){
+    transform: rotateY(360deg)translateZ(300px);}    
+        
+
+.content-carrousel img{
+    width: 100%;
+}
+
+.content-carrousel img:hover{
+    transform: scale(1.5);
+    transition: all 300ms;
+}
+
+@keyframes rotar {
+    from{
+        transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(360deg);
+    }
+}
+/* SECCION HABILDADES */
+#habilidades {
+    background: url(../img/864353.png);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0 40px;
+}
+
+#habilidades h2 {
+    text-align: center;
+    color: #000000;
+    font-size: 50px;
+}
+
+#habilidades .fila {
+    display: flex;
+    justify-content: center;
+    padding: 50px 50px 40px;
+}
+#habilidades .fila div {
+    width: 250px; /* Ancho del contenedor */
+    height: 250px; /* Alto del contenedor igual al ancho para que sea cuadrado */
+    margin: 10px; /* Espacio entre los contenedores */
+    position: relative; /* Para el posicionamiento del contenido */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde del contenedor */
+}
+
+#habilidades img {
+    max-width: 100%; /* Ajusta el ancho máximo de la imagen al 100% del contenedor */
+    max-height: 100%; /* Ajusta el alto máximo de la imagen al 100% del contenedor */
+    object-fit: contain; /* Ajusta la imagen para que se contenga dentro del contenedor sin recortarse */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /
+}
+
+#habilidades img:hover {
+    transform: scale(1.05); /* Agranda la imagen */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);  /* Agrega sombra */
+    transform: rotate(15deg);
+}
+
+#habilidades {
+    background: url(../img/864353.png);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0 40px;
+    transition: background-color 0.5s ease; /* Transición para el fondo */
+}
+
+#habilidades:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Cambia el color de fondo al pasar el ratón */
+}
+
+#habilidades h2 {
+    text-align: center;
+    color: #000000;
+    font-size: 50px;
+    transition: color 0.3s ease, font-size 0.3s ease; /* Agrega transición */
+}
+
+#habilidades h2:hover {
+    color: #ff0000; /* Cambia el color del texto */
+    font-size: 55px; /* Aumenta el tamaño del texto */
+}
+
+/* SECCION DE PISTAS */
+#pistas{
+    background: #ededed;
+    width: 100%;
+    height: 1000px;
+}
+
+#pistas h2{
+    font-size: 50px;
+    padding: 20px 0px;
+    text-align: center;
+    
+}
+
+
+/* ------------------CARD------------ */
+.container{
+    display: grid;
+    place-items: center;
+    margin-inline: 25px;
+    padding-block: 50px;
+}
+
+.card__container{
+    display: flex;
+    row-gap: 3.5rem;
+}
+
+.card__article{
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 250px;
+
+}
+
+.card__img{
+    width: 348px;
+    border-radius: 25px;
+    
+}
+
+.card__data{
+    width: 680px;
+    height: 300px;
+    background-color: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.80);
+    border-radius: 15px;
+    position: absolute;
+    bottom: -9rem;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    opacity: 0;
+    transition: opacity 1s 1s;
+}
+
+.card__descripcion{
+    display: block;
+    font-size:16px;
+    margin-bottom: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card__titulo{
+    font-size: 40px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 30px;
+   
+}
+
+.card__button{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    
+}
+
+.card__button:hover{
+    text-decoration: underline;
+}
+
+/* Animacion en hover */
+.card__article:hover .card__data{
+    animation: show-data 1s forwards;
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.card__article:hover{
+    animation: remove-overflow 2s forwards;
+}
+
+.card__article:not(:hover){
+    animation: show-overflow 2s forwards;
+}
+
+.card__article:not(:hover) .card__data{
+    animation: remove-data 1s forwards;
+}
+
+/*CARTA ANIMADA  */
+@keyframes show-data{
+    50%{
+        transform: translateY(-10rem);
+    }
+    100%{
+        transform: translateY(.7rem);
+    }
+}
+
+@keyframes remove-overflow{
+    to{
+        overflow: initial;
+    }
+}
+
+@keyframes remove-data{
+    0%{
+        transform: translateY(-7rem);
+    }
+    50%{
+        transform: translateY(-10rem);
+    }
+    100%{
+        transform: translateY(.5rem);
+    }
+}
+
+@keyframes show-overflow{
+    0%{
+        overflow: initial;
+        pointer-events: none;
+    }
+    50%{
+        overflow: hidden;
+    }
+}
+
+/* ============BREAKPOINTS========= */
+
+/* FOR SMALL DEVICES */
+@media screen and (max-width:340px){
+    .container{
+        margin-inline: 1rem;
+    }
+    .card__data{
+        width: 250px;
+        padding: 1rem;
+    }
+}
+
+/* FOR MEDIUM DEVICES */
+@media screen and (min-width:768px){
+    .card__container{
+        grid-template-columns:repeat(2, 1fr);
+        column-gap: 1.5rem;
+    }
+}
+
+/* FOR LARGE DEVICES */
+@media screen and (min-width:1120px){
+    .container{
+        height: 100vh;
+    }
+    .card__container{
+        grid-template-columns:repeat(3, 1fr);
+
+    }
+    .card__img{
+        width: 348px;
+    }
+    .card__data{
+        width: 316px;
+        padding-inline: 2.5rem;
+    }
+}
+/* PIE DE PAGINA */
+footer{
+    background: black;
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+    font-size: 20px;
+    line-height: 30px;
+}
